@@ -97,14 +97,14 @@ class Kalkulator ( wx.Frame ):
 
 		baris1.Add( self.tombol3, 0, wx.ALL, 5 )
 
-		self.tombolAkar = wx.Button( self, wx.ID_ANY, u"√(a)", wx.Point( -1,-1 ), wx.Size( 100,45 ), 0 )
+		self.tombolAkar = wx.Button( self, wx.ID_ANY, u"b√(a)", wx.Point( -1,-1 ), wx.Size( 100,45 ), 0 )
 		self.tombolAkar.SetFont( wx.Font( 15, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 		self.tombolAkar.SetMinSize( wx.Size( 100,45 ) )
 		self.tombolAkar.SetMaxSize( wx.Size( 100,45 ) )
 
 		baris1.Add( self.tombolAkar, 0, wx.ALL, 5 )
 
-		self.tombolKuadrat = wx.Button( self, wx.ID_ANY, u"a^2", wx.DefaultPosition, wx.Size( 100,45 ), 0 )
+		self.tombolKuadrat = wx.Button( self, wx.ID_ANY, u"a^b", wx.DefaultPosition, wx.Size( 100,45 ), 0 )
 		self.tombolKuadrat.SetFont( wx.Font( 15, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 		self.tombolKuadrat.SetMinSize( wx.Size( 100,45 ) )
 		self.tombolKuadrat.SetMaxSize( wx.Size( 100,45 ) )
@@ -112,7 +112,7 @@ class Kalkulator ( wx.Frame ):
 		baris1.Add( self.tombolKuadrat, 0, wx.ALL, 5 )
 
 
-		bSizer1.Add( baris1, 1, wx.EXPAND, 5 )
+		bSizer1.Add( baris1, 0, wx.EXPAND, 5 )
 
 		baris2 = wx.BoxSizer( wx.HORIZONTAL )
 
@@ -152,7 +152,7 @@ class Kalkulator ( wx.Frame ):
 		baris2.Add( self.tombolHapus, 0, wx.ALL, 5 )
 
 
-		bSizer1.Add( baris2, 1, wx.EXPAND, 5 )
+		bSizer1.Add( baris2, 0, wx.EXPAND, 5 )
 
 		baris3 = wx.BoxSizer( wx.HORIZONTAL )
 
@@ -192,7 +192,7 @@ class Kalkulator ( wx.Frame ):
 		baris3.Add( self.tombolKoma, 0, wx.ALL, 5 )
 
 
-		bSizer1.Add( baris3, 1, wx.EXPAND, 5 )
+		bSizer1.Add( baris3, 0, wx.EXPAND, 5 )
 
 		baris4 = wx.BoxSizer( wx.HORIZONTAL )
 
@@ -224,7 +224,7 @@ class Kalkulator ( wx.Frame ):
 
 		baris4.Add( self.tombolTambah, 0, wx.ALL, 5 )
 
-		self.tombolSamaDengan = wx.Button( self, wx.ID_ANY, u"=", wx.DefaultPosition, wx.Size( 100,45 ), 0 )
+		self.tombolSamaDengan = wx.Button( self, wx.ID_ANY, u"=/clear", wx.DefaultPosition, wx.Size( 100,45 ), 0 )
 		self.tombolSamaDengan.SetFont( wx.Font( 15, wx.FONTFAMILY_DEFAULT, wx.FONTSTYLE_NORMAL, wx.FONTWEIGHT_NORMAL, False, wx.EmptyString ) )
 		self.tombolSamaDengan.SetMinSize( wx.Size( 100,45 ) )
 		self.tombolSamaDengan.SetMaxSize( wx.Size( 100,45 ) )
