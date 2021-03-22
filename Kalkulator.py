@@ -21,24 +21,27 @@ class subClass(Main.Kalkulator):
 		self.isi = ""
 
 	def eksekusi(self):
-		if self.operator == "√":
-			self.hasil = float(self.hasil)**(1/float(self.hitung))
-		elif self.operator == "^":
-			self.hasil = float(self.hasil)**float(self.hitung)
-		elif self.operator == "+":
-			self.hasil = float(self.hasil)+float(self.hitung)
-		elif self.operator == "-":
-			self.hasil = float(self.hasil)-float(self.hitung)
-		elif self.operator == "/":
-			self.hasil = float(self.hasil)/float(self.hitung)
-		elif self.operator == "*":
-			self.hasil = float(self.hasil)*float(self.hitung)
-		else:
-			self.hasil = float(self.hitung)
-		self.setValueHasil()
-		self.hitung = ""
-
+		try:
+			if self.operator == "√":
+				self.hasil = float(self.hasil)**(1/float(self.hitung))
+			elif self.operator == "^":
+				self.hasil = float(self.hasil)**float(self.hitung)
+			elif self.operator == "+":
+				self.hasil = float(self.hasil)+float(self.hitung)
+			elif self.operator == "-":
+				self.hasil = float(self.hasil)-float(self.hitung)
+			elif self.operator == "/":
+				self.hasil = float(self.hasil)/float(self.hitung)
+			elif self.operator == "*":
+				self.hasil = float(self.hasil)*float(self.hitung)
+			else:
+				self.hasil = float(self.hitung)
+			self.setValueHasil()
+			self.hitung = ""
+		except:
+			pass
 #override
+#angka
 	def tombol1OnButtonClick(self,event):
 		self.hitung = str(self.hitung + "1")
 		self.setValueperhitungan(self.hitung)
@@ -50,20 +53,6 @@ class subClass(Main.Kalkulator):
 	def tombol3OnButtonClick(self,event):
 		self.hitung = str(self.hitung + "3")
 		self.setValueperhitungan(self.hitung)
-
-	def tombolAkarOnButtonClick(self,event):
-		self.perhitungan.append(self.hitung)
-		self.perhitungan.append(" √")
-		self.setValueperhitungan("")
-		self.eksekusi()
-		self.operator = "√"
-
-	def tombolKuadratOnButtonClick(self,event):
-		self.perhitungan.append(self.hitung)
-		self.perhitungan.append(" ^")
-		self.setValueperhitungan("")
-		self.eksekusi()
-		self.operator = "^"
 
 	def tombol4OnButtonClick(self,event):
 		self.hitung = str(self.hitung + "4")
@@ -77,18 +66,6 @@ class subClass(Main.Kalkulator):
 		self.hitung = str(self.hitung + "6")
 		self.setValueperhitungan(self.hitung)
 
-	def tombolBagiOnButtonClick(self,event):
-		self.perhitungan.append(self.hitung)
-		self.perhitungan.append(" / ")
-		self.setValueperhitungan("")
-		self.eksekusi()
-		self.operator = "/"
-
-	def tombolHapusOnButtonClick( self, event ):
-		self.hitung = self.hitung[:-1]
-		self.perhitungan = self.perhitungan[:-1]
-		self.setValueperhitungan(self.perhitungan)
-
 	def tombol7OnButtonClick(self,event):
 		self.hitung = str(self.hitung + "7")
 		self.setValueperhitungan(self.hitung)
@@ -100,6 +77,36 @@ class subClass(Main.Kalkulator):
 	def tombol9OnButtonClick(self,event):
 		self.hitung = str(self.hitung + "9")
 		self.setValueperhitungan(self.hitung)
+
+	def tombol0OnButtonClick(self,event):
+		self.hitung = self.hitung + "0"
+		self.setValueperhitungan(self.hitung)
+
+#operator
+	def tombolBagiOnButtonClick(self,event):
+		self.perhitungan.append(self.hitung)
+		self.perhitungan.append(" / ")
+		self.setValueperhitungan("")
+		self.eksekusi()
+		self.operator = "/"
+
+	def tombolHapusOnButtonClick( self, event ):
+		self.hitung = self.hitung[:-1]
+		self.setValueperhitungan(self.hitung)
+
+	def tombolAkarOnButtonClick(self,event):
+		self.perhitungan.append(self.hitung)
+		self.perhitungan.append("√ ")
+		self.setValueperhitungan("")
+		self.eksekusi()
+		self.operator = "√"
+
+	def tombolKuadratOnButtonClick(self,event):
+		self.perhitungan.append(self.hitung)
+		self.perhitungan.append("^")
+		self.setValueperhitungan("")
+		self.eksekusi()
+		self.operator = "^"
 
 	def tombolKaliOnButtonClick(self,event):
 		self.perhitungan.append(self.hitung)
@@ -115,12 +122,9 @@ class subClass(Main.Kalkulator):
 		self.setValueperhitungan(self.hitung)
 
 	def minesPlusOnButtonClick(self,event):
-		event.Skip()
+		self.hitung = str(int(self.hitung) * (-1))
+		self.setValueperhitungan(self.hitung)
 
-	def tombol0OnButtonClick(self,event):
-		self.hitung = self.hitung + "0"
-		self.perhitungan = self.perhitungan + "0"
-		self.setValueperhitungan(self.perhitungan)
 
 	def tombolKurangOnButtonClick(self,event):
 		self.perhitungan.append(self.hitung)
@@ -146,6 +150,7 @@ class subClass(Main.Kalkulator):
 		self.operator = ""
 		self.perhitungan = []
 		self.isi = ""
+
 
 
 app = wx.App()
